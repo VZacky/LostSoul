@@ -17,12 +17,13 @@ public class Soul extends Actor
 
     private String statsBooster = "";
     private int health = 30;
-    private int levelUpHealth = 0;
-    private int bonusHealth = 0;
-    private int totalHealth = health + levelUpHealth + bonusHealth;
-    private int speed = 2;
-    private int bonusDamage = 0;
-    private int bonusDefense = 0;
+    private int totalHealth;
+    private int currentHealth;
+    private int levelUpHealth;
+    private int bonusHealth;
+    private int speed;
+    private int bonusDamage;
+    private int bonusDefense;
 
     private String holyItem = "";
 
@@ -33,8 +34,10 @@ public class Soul extends Actor
     {
         moveAndTurn();
         damage();
-        getWorld().showText("Hp: " + health, 300, 100);
+        getWorld().showText("Hp: " + totalHealth, 300, 100);
         getWorld().showText("Speed: " + speed, 500, 100);
+        getWorld().showText("Protection: " + bonusDefense, 700, 100);
+        getWorld().showText("Damage: " + bonusDamage, 100, 100);
 
         weapons();
         useWeapons();
@@ -122,18 +125,18 @@ public class Soul extends Actor
     {
         if (statsBooster == "ToughSoul") {
             bonusDamage = 4;
-        } else {
+        } else if (statsBooster != "OPSoul"){
             bonusDamage = 0;
         }
         if (statsBooster == "SpeedySoul") {
             speed = 4;
-        } else {
+        } else if (statsBooster != "OPSoul"){
             speed = 2;
         }
         if (statsBooster == "TankySoul") {
             bonusHealth = 12;
             bonusDefense = 2;
-        } else {
+        } else if (statsBooster != "OPSoul"){
             bonusHealth = 0;
             bonusDefense = 0;
         }
@@ -142,7 +145,7 @@ public class Soul extends Actor
             bonusDamage = 2;
             speed = 3;
             bonusDefense = 1;
-        } else {
+        } else if (statsBooster != "ToughSoul" && statsBooster != "SpeedySoul" && statsBooster != "TankySoul"){
             bonusHealth = 0;
             bonusDamage = 0;
             speed = 2;

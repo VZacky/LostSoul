@@ -63,5 +63,20 @@ public class NewRoom extends World
         addObject(tankySoul,610,698);
         ToughSoul toughSoul = new ToughSoul();
         addObject(toughSoul,193,724);
+        candle.setLocation(127,379);
+        light.setLocation(136,427);
+        candle.setLocation(237,342);
+        light.setLocation(94,337);
+        soulTears.setLocation(368,335);
+        beastsClaws.setLocation(238,466);
+        demonSpear.setLocation(160,477);
+        beastsClaws.setLocation(396,455);
+        demonSpear.setLocation(239,459);
+        oPSoul.setLocation(708,731);
+        tankySoul.setLocation(708,655);
+        toughSoul.setLocation(739,560);
+        speedySoul.setLocation(712,461);
+        Monster monster2 = new Monster();
+        addObject(monster2,484,627);
     }
 }
